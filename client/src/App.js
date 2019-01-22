@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom';
 import SavedList from './Movies/SavedList';
 import MovieList from './Movies/MovieList';
 import Movie from './Movies/Movie';
-import { timingSafeEqual } from 'crypto';
+// import { timingSafeEqual } from 'crypto';
 
 export default class App extends Component {
   constructor() {
@@ -24,9 +24,8 @@ export default class App extends Component {
       <div>
         <SavedList list={this.state.savedList} />
         <Route exact path="/" component={MovieList} />
-        <Route exact path="/movies/:id" render={(props) => {
-          return(<Movie {...props} addToSavedList={this.addToSavedList}/>)
-        }}/>
+        <Route exact path={`/movies/:id`} component={Movie}/>
+        
       </div>
     );
   }
